@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: dev
+    command: npm start
+
+  test:
+    build: .
+    environment:
+      NODE_ENV: test
+    command: npm test
