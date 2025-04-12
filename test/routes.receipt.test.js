@@ -1,10 +1,10 @@
 const request = require("supertest");
 const express = require("express");
-const receiptRoutes = require("../src/routes/receipt");
+const receiptsRoutes = require("../src/routes/receipts");
 
 const app = express();
 app.use(express.json());
-app.use("/receipts", receiptRoutes);
+app.use("/receipts", receiptsRoutes);
 
 describe("Receipt API Routes", () => {
     test("GET /:id/points with invalid id should return error msg", async () => {
