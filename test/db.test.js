@@ -1,9 +1,5 @@
 const db = require("../src/db");
 
-// afterAll(() => {
-//     db.resetDb();
-// });
-
 describe("In-memory DB functionality test", () => {
     test("addReceipt with valid receipt returns id", () => {
         const receipt = {
@@ -61,7 +57,6 @@ describe("In-memory DB functionality test", () => {
 
     test("getReceiptById with invalid id returns falsy", () => {
         const receiptFromDb = db.getReceiptById("21");
-
         expect(receiptFromDb).toBeFalsy();
     });
 });

@@ -3,7 +3,7 @@ const db = require("../db");
 const receiptUtil = require("../util/receiptUtil");
 const router = express.Router();
 
-// get points
+// GET /receipts/{id}/points
 router.get("/:id/points", (req, res) => {
     try {
         const receipt = db.getReceiptById(req.params.id);
@@ -20,7 +20,7 @@ router.get("/:id/points", (req, res) => {
     }
 });
 
-// process receipt
+// POST /receipts/process
 router.post("/process", (req, res) => {
     try {
         const data = req.body;

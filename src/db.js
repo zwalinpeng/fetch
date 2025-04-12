@@ -15,7 +15,7 @@ function getReceiptById(id) {
 }
 
 function addReceipt(receipt) {
-    // validate receipt to avoid adding invalid data
+    // validate receipt to avoid inserting invalid data
     if (receiptUtil.validateReceipt(receipt)) {
         const id = generateId();
         db[id] = receipt;

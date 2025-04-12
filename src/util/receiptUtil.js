@@ -1,8 +1,7 @@
-const db = require("../db");
 const Ajv = require("ajv");
 const addFormats = require("ajv-formats");
 
-const ajv = new Ajv({ allErrors: true }); // options can be passed, e.g. {allErrors: true}
+const ajv = new Ajv({ allErrors: true });
 addFormats(ajv);
 
 const itemSchema = {
@@ -50,17 +49,18 @@ const receiptSchema = {
     },
 };
 
+// create validator for schema
 ajv.addSchema(itemSchema, "item");
 ajv.addSchema(receiptSchema, "receipt");
 const validate = ajv.getSchema("receipt");
 
-// validate receipt schema
+// validate receipt against schema
 function validateReceipt(receipt) {
-    const valid = validate(receipt);
-    return valid;
+    return validate(receipt);
 }
 
 // calculate receipt points
+// * assumes valid receipt as points should only be calculated for valid receipt
 function calculatePoints(receipt) {
     let points = 0;
     // +1 for every alphanumeric char in retailer name

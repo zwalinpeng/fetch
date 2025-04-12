@@ -6,7 +6,7 @@ const port = 3000;
 app.use(express.json());
 
 // import routes
-const receiptRoutes = require("./routes/receipts");
+const receiptRoutes = require("./routes/receipt");
 app.use("/receipts", receiptRoutes);
 
 // root
